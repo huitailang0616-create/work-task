@@ -229,6 +229,8 @@
     }
     audioSwitch.classList.toggle("is-locked", locked);
     audioSwitch.setAttribute("aria-disabled", String(locked));
+    var tip = $("audioTip");
+    if (tip) tip.hidden = !locked;
   }
   audioSwitch.addEventListener("click", function () {
     if (state.model === "seedance") { syncAudioLock(); return; }
