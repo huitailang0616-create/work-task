@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LumeFlow Clone — AI UGC Ads Generator (local test replica)</title>
+<meta name="description" content="Local static replica of an AI UGC ads tool page for a practical test. Original code, placeholder visuals, front-end simulation only.">
+<link rel="stylesheet" href="/assets/lume.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="app-wrap header-row">
+    <a class="app-logo" href="/ugc-ads/"><span class="lf-mark" aria-hidden="true"></span>LumeFlow<span class="clone-tag">clone</span></a>
+    <nav class="app-nav">
+      <a href="/">Topview demo</a>
+      <a href="#history">History</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <span class="credits" title="Placeholder only">Credits · demo</span>
+  </div>
+</header>
+
+<main class="app-wrap app-main">
+  <div class="tool-layout">
+    <!-- Controls -->
+    <section class="panel controls" aria-label="Generator controls">
+      <div class="model-head">
+        <div>
+          <h1>AI UGC Ads Generator</h1>
+          <p class="model-name">Seedance 2.0</p>
+          <p class="model-desc">Create cinematic ad videos with smooth motion and realistic visuals.</p>
+        </div>
+        <span class="model-badge">Video</span>
+      </div>
+
+      <div class="field">
+        <span class="field-label" id="productLabel">Product</span>
+        <div class="upload-box" id="productUpload" role="button" tabindex="0" aria-labelledby="productLabel">
+          <input type="file" id="productFile" accept="image/*" hidden>
+          <div class="upload-empty">
+            <span class="upload-icon" aria-hidden="true">＋</span>
+            <p>Click to upload an image</p>
+            <p class="upload-hint">Product photo — preview stays in your browser</p>
+          </div>
+          <img class="upload-preview" id="productPreview" alt="Product preview" hidden>
+          <button class="upload-remove" id="productRemove" type="button" hidden>Remove</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field-label" id="avatarLabel">Avatar <em>(optional)</em></span>
+        <div class="upload-box small" id="avatarUpload" role="button" tabindex="0" aria-labelledby="avatarLabel">
+          <input type="file" id="avatarFile" accept="image/*" hidden>
+          <div class="upload-empty">
+            <span class="upload-icon" aria-hidden="true">＋</span>
+            <p>Click to upload an image</p>
+            <p class="upload-hint">Creator / presenter photo</p>
+          </div>
+          <img class="upload-preview" id="avatarPreview" alt="Avatar preview" hidden>
+          <button class="upload-remove" id="avatarRemove" type="button" hidden>Remove</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="label-row">
+          <label class="field-label" for="promptInput">Prompt</label>
+          <span class="counter"><span id="promptCount">0</span>/5000</span>
+        </div>
+        <textarea id="promptInput" rows="5" maxlength="5000" placeholder="Describe your UGC ad… e.g. a creator unboxes the product at a sunny kitchen table, talks to camera, and shows the result in the last 3 seconds"></textarea>
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label class="field-label" for="langSelect">Language</label>
+          <select id="langSelect">
+            <option selected>English</option>
+            <option>中文 (Chinese)</option>
+            <option>Español</option>
+            <option>日本語 (Japanese)</option>
+            <option>Français</option>
+            <option>Deutsch</option>
+          </select>
+        </div>
+        <div class="field">
+          <span class="field-label">Resolution</span>
+          <div class="segmented" data-group="resolution" role="radiogroup" aria-label="Resolution">
+            <button type="button" role="radio" aria-checked="false" data-value="480P">480P</button>
+            <button type="button" role="radio" aria-checked="true" data-value="720P" class="is-active">720P</button>
+            <button type="button" role="radio" aria-checked="false" data-value="1080P">1080P</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <span class="field-label">Duration</span>
+          <div class="segmented" data-group="duration" role="radiogroup" aria-label="Duration">
+            <button type="button" role="radio" aria-checked="true" data-value="5s" class="is-active">5s</button>
+            <button type="button" role="radio" aria-checked="false" data-value="10s">10s</button>
+            <button type="button" role="radio" aria-checked="false" data-value="15s">15s</button>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label">Outputs</span>
+          <div class="segmented" data-group="outputs" role="radiogroup" aria-label="Outputs">
+            <button type="button" role="radio" aria-checked="true" data-value="1" class="is-active">1</button>
+            <button type="button" role="radio" aria-checked="false" data-value="2">2</button>
+            <button type="button" role="radio" aria-checked="false" data-value="3">3</button>
+            <button type="button" role="radio" aria-checked="false" data-value="4">4</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Aspect Ratio</span>
+        <div class="pills" data-group="ratio" role="radiogroup" aria-label="Aspect Ratio">
+          <button type="button" role="radio" aria-checked="true" data-value="Auto" class="is-active">Auto</button>
+          <button type="button" role="radio" aria-checked="false" data-value="16:9">16:9</button>
+          <button type="button" role="radio" aria-checked="false" data-value="4:3">4:3</button>
+          <button type="button" role="radio" aria-checked="false" data-value="1:1">1:1</button>
+          <button type="button" role="radio" aria-checked="false" data-value="3:4">3:4</button>
+          <button type="button" role="radio" aria-checked="false" data-value="9:16">9:16</button>
+          <button type="button" role="radio" aria-checked="false" data-value="21:9">21:9</button>
+        </div>
+      </div>
+
+      <div class="field toggle-row">
+        <div>
+          <span class="field-label">Generate Audio</span>
+          <p class="toggle-hint">Voice, ambience and music in the mock output</p>
+        </div>
+        <button class="switch is-on" id="audioSwitch" role="switch" aria-checked="true" type="button"><span class="knob"></span></button>
+      </div>
+
+      <button class="btn-generate" id="generateBtn" type="button">Generate</button>
+      <p class="gen-note" id="genNote">Front-end simulation only — no API is called and no credits are used.</p>
+    </section>
+
+    <!-- Output -->
+    <section class="panel output-panel" aria-label="Output">
+      <div class="tabs" role="tablist">
+        <button class="tab is-active" data-tab="history" role="tab" aria-selected="true" type="button" id="history">History</button>
+        <button class="tab" data-tab="inspiration" role="tab" aria-selected="false" type="button">Inspiration</button>
+      </div>
+
+      <div class="tab-pane" id="pane-history">
+        <div class="output-stage" id="outputStage">
+          <div class="empty-state" id="emptyState">
+            <div class="empty-art" aria-hidden="true"></div>
+            <p>Your generated UGC ads will appear here.</p>
+            <p class="empty-sub">Upload a product image, write a prompt, then press Generate.</p>
+          </div>
+          <div class="loading-state" id="loadingState" hidden>
+            <div class="spinner" aria-hidden="true"></div>
+            <p id="loadingText">Analyzing product image…</p>
+            <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+          </div>
+          <div class="results-grid" id="resultsGrid"></div>
+        </div>
+        <div class="history-list-wrap">
+          <h2 class="side-h">Session history</h2>
+          <ul class="history-list" id="historyList">
+            <li class="history-empty">No runs yet in this session.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="pane-inspiration" hidden>
+        <div class="inspo-grid" id="inspoGrid"></div>
+        <p class="empty-sub">Pick a card to drop its prompt into the generator — all artwork here is CSS placeholder art, not copied media.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- FAQ -->
+  <section class="panel faq-panel" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">What is an AI UGC ads generator?<span class="faq-icon">+</span></button><div class="faq-a"><p>An AI UGC ads generator uses artificial intelligence to create creator-style advertising videos that look like user-generated content. It helps brands produce product demos, testimonials, and social media ads faster.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can LumeFlow AI create UGC videos for products?<span class="faq-icon">+</span></button><div class="faq-a"><p>Yes. LumeFlow AI can transform product images, concepts, or text prompts into engaging UGC-style videos designed for e-commerce, TikTok, and social media marketing.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can AI-generated UGC ads be used for social media campaigns?<span class="faq-icon">+</span></button><div class="faq-a"><p>Yes. AI-generated UGC ads can be used as creative assets for social media platforms, helping brands create more variations of promotional videos and product content.</p></div></div>
+    </div>
+  </section>
+
+  <footer class="app-footer">
+    <p>LumeFlow clone — local practical-test replica. Original code &amp; placeholder visuals only; not affiliated with LumeFlow. See README.md.</p>
+  </footer>
+</main>
+<script src="/assets/ugc.js"></script>
+</body>
+</html>

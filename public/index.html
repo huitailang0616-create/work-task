@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Topview Clone — The Smartest AI Video Agent (local test replica)</title>
+<meta name="description" content="Local static replica for a practical test. Original code and placeholder visuals, built from publicly visible page structure.">
+<link rel="stylesheet" href="/assets/topview.css">
+</head>
+<body>
+<header class="site-header" id="siteHeader">
+  <div class="wrap nav-row">
+    <a class="logo" href="/" aria-label="Topview home"><span class="logo-mark" aria-hidden="true"></span>Topview<span class="clone-tag">clone</span></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">Menu</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#canvas">Canvas</a>
+      <a href="#drama">Drama Studio</a>
+      <a href="#board">Board</a>
+      <a href="#compare">Why Topview</a>
+      <a href="#faq">FAQ</a>
+      <a href="/ugc-ads/">UGC Ads demo</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="#faq">Sign in</a>
+      <a class="btn btn-primary" href="#creator">Get started</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-inner reveal">
+      <p class="eyebrow">Community · The Smartest AI Video Agent</p>
+      <h1>Create Short Films and Marketing Videos with an <span class="grad">AI Video Agent</span></h1>
+      <p class="hero-sub">Describe your idea or add a script, reference video, or product URL. The agent plans scenes, selects the right models, generates assets, and keeps every shot editable on Canvas.</p>
+
+      <div class="creator-card" id="creator">
+        <div class="creator-tabs" role="tablist" aria-label="Input mode">
+          <button class="chip-tab is-active" data-mode="idea" type="button">Idea</button>
+          <button class="chip-tab" data-mode="script" type="button">Script</button>
+          <button class="chip-tab" data-mode="url" type="button">Product URL</button>
+          <button class="chip-tab" data-mode="reference" type="button">Reference video</button>
+        </div>
+        <label class="sr-only" for="ideaInput">Describe your idea</label>
+        <textarea id="ideaInput" rows="3" maxlength="600" placeholder="Describe your idea… e.g. a 30-second vertical drama about a florist who receives a note from her future self"></textarea>
+        <div class="creator-row">
+          <div class="creator-tools">
+            <button class="tool-btn" type="button" data-fill="A product ad for a reusable water bottle, shot on a rainy city street at dusk, upbeat and cinematic.">Try an ad idea</button>
+            <button class="tool-btn" type="button" data-fill="A three-episode micro drama: a night-shift nurse discovers every patient shares the same childhood memory.">Try a drama idea</button>
+            <span class="char-count"><span id="charCount">0</span>/600</span>
+          </div>
+          <button class="btn btn-primary btn-create" id="createBtn" type="button">Create video</button>
+        </div>
+        <div class="plan-sim" id="planSim" hidden>
+          <p class="plan-title">Agent plan <span class="plan-status" id="planStatus">Planning…</span></p>
+          <ol class="plan-steps">
+            <li data-step>Read intent &amp; references</li>
+            <li data-step>Plan scenes, characters &amp; shots</li>
+            <li data-step>Select image / video / voice models</li>
+            <li data-step>Generate assets on Canvas</li>
+          </ol>
+          <p class="plan-note">Demo simulation only — no real generation happens in this local replica.</p>
+        </div>
+      </div>
+
+      <ul class="hero-stats">
+        <li><strong>30+</strong><span>languages for voice &amp; captions</span></li>
+        <li><strong>3</strong><span>workspaces: Canvas · Drama Studio · Board</span></li>
+        <li><strong>1</strong><span>workspace from idea to multi-format export</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Workflow shift -->
+  <section class="section" id="compare">
+    <div class="wrap reveal">
+      <p class="eyebrow dark">Workflow shift</p>
+      <h2>From Single-Purpose Generators to an Agent Production System</h2>
+      <p class="section-sub">Most tools make one asset at a time. Topview is designed for the full creative loop: plan, generate, compare, refine, and adapt across video, image, social, and commercial formats.</p>
+
+      <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th scope="col">Capability</th>
+              <th scope="col">Traditional Manual Production</th>
+              <th scope="col">Generic AI Video Tools</th>
+              <th scope="col" class="col-best">TopView AI Video Agent <span class="best-badge">Best</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Creative Input</th><td>Brief, shot list, assets, team handoff</td><td>Mostly prompt-only</td><td class="col-best">Prompt, URL, image, video, or reference mix</td></tr>
+            <tr><th scope="row">Reference Video Recreation</th><td>Manual research and editing</td><td>Limited or template-bound</td><td class="col-best">Analyzes pacing, shots, hooks, and structure</td></tr>
+            <tr><th scope="row">Image + Video Workflow</th><td>Separate design and video tools</td><td>Usually one media type</td><td class="col-best">Create images, scene boards, clips, and edits together</td></tr>
+            <tr><th scope="row">Narrative Production</th><td>Writers, directors, editors, actors</td><td>Short isolated clips</td><td class="col-best">Plans scenes, characters, shots, and variants</td></tr>
+            <tr><th scope="row">Platform Formats</th><td>Rebuild per channel</td><td>Export and resize manually</td><td class="col-best">Adapts for TikTok, Reels, Shorts, ads, and stories</td></tr>
+            <tr><th scope="row">Localization</th><td>High cost per market</td><td>Limited and one at a time</td><td class="col-best">Voice, captions, and versions across 30+ languages</td></tr>
+            <tr class="verdict"><th scope="row">Verdict</th><td>High control, high overhead</td><td>Fast clips, narrow workflow</td><td class="col-best">Multi-format production from one workspace</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workspaces -->
+  <section class="section section-alt">
+    <div class="wrap cards-grid">
+      <article class="feature-card reveal" id="canvas">
+        <div class="card-art art-canvas" aria-hidden="true"></div>
+        <h3>Canvas</h3>
+        <p>Agent-driven, free-form video creation. You bring the idea and choose the direction; the agentic Canvas proposes scenes, creates assets, and keeps voice, characters, and visual identity consistent across multi-shot videos.</p>
+        <ul><li>Short films &amp; micro drama</li><li>Video cloning &amp; URL-to-video</li><li>Product ads &amp; explainers</li></ul>
+      </article>
+      <article class="feature-card reveal" id="drama">
+        <div class="card-art art-drama" aria-hidden="true"></div>
+        <h3>Drama Studio</h3>
+        <p>Built for AI micro-drama and multi-episode storytelling. Break down scripts, plan characters, scenes, and props, and preserve visual and audio continuity across clips and episodes.</p>
+        <ul><li>Script &amp; character bible</li><li>Scene &amp; prop planning</li><li>Series-wide consistency</li></ul>
+      </article>
+      <article class="feature-card reveal" id="board">
+        <div class="card-art art-board" aria-hidden="true"></div>
+        <h3>Board</h3>
+        <p>Image, video, audio, and avatar models in one workspace, with asset management for grouping, rating, viewing, pinning, comparing, and batch-operating generated materials.</p>
+        <ul><li>All media models together</li><li>Rate, pin &amp; compare assets</li><li>Batch operations</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section">
+    <div class="wrap reveal">
+      <h2>How the agent turns an idea into a video</h2>
+      <ol class="steps-row">
+        <li><span>1</span><strong>Describe</strong><p>Chat with the agent, add references, or upload assets — no timeline skills needed.</p></li>
+        <li><span>2</span><strong>Plan</strong><p>The agent reads intent, plans scenes, and selects models and skills.</p></li>
+        <li><span>3</span><strong>Generate</strong><p>Visual and audio assets are produced and stay editable on the canvas.</p></li>
+        <li><span>4</span><strong>Refine &amp; adapt</strong><p>Adjust prompts, shots, and formats, or run any tool manually for direct control.</p></li>
+      </ol>
+      <div class="format-chips" aria-label="Platform formats">
+        <span>TikTok</span><span>Reels</span><span>Shorts</span><span>Video ads</span><span>Stories</span><span>Product demos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="wrap wrap-narrow reveal">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">What is Topview AI?<span class="faq-icon">+</span></button><div class="faq-a"><p>Topview AI is an agent-driven creative platform for video creation. It connects Canvas, Drama Studio, and Board so creators can plan, generate, organize, and refine videos from one workspace.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">What is Canvas best for?<span class="faq-icon">+</span></button><div class="faq-a"><p>Canvas is best for agent-led video creation: short films, micro drama, video cloning, URL-to-video, batch production, music videos, explainers, product ads, and image-to-video workflows.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">How does the Canvas agent turn an idea into a video?<span class="faq-icon">+</span></button><div class="faq-a"><p>You describe the idea, add references, or upload assets. The agent reads the intent, plans scenes, selects models, generates visual and audio assets, applies skills, and keeps the project editable on the canvas. You can also run each tool manually for direct control.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">Do beginners need video production skills?<span class="faq-icon">+</span></button><div class="faq-a"><p>No. Beginners can work by chatting with the agent, giving ideas, and making direction choices — no timelines, model settings, or prompt engineering required.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">Can advanced creators still control the details?<span class="faq-icon">+</span></button><div class="faq-a"><p>Yes. Professional creators can control prompts, references, characters, scenes, models, aspect ratios, shot structure, edits, and asset choices while using the agent as a creative partner.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">What is Drama Studio for?<span class="faq-icon">+</span></button><div class="faq-a"><p>Drama Studio is designed for AI micro-drama, mini drama, vertical drama, and multi-episode storytelling, with reusable script, character, scene, and prop assets.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">How does Drama Studio keep episodes consistent?<span class="faq-icon">+</span></button><div class="faq-a"><p>It organizes the script, character bible, scene design, props, and generation prompts as reusable production assets, keeping characters, locations, visuals, and sound coherent across a series.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">What is Board used for?<span class="faq-icon">+</span></button><div class="faq-a"><p>Board brings image, video, audio, and avatar models into one workspace, plus asset management for grouping, rating, viewing, pinning, comparing, and batch-operating materials.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">Can Topview recreate a reference video style?<span class="faq-icon">+</span></button><div class="faq-a"><p>Yes. It can study a reference video's pacing, shot structure, hook, motion, framing, and visual tone, then create a new video around your own story, product, or character.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">How is Topview different from generic AI video tools?<span class="faq-icon">+</span></button><div class="faq-a"><p>Most tools either generate a single clip or ask users to manually operate nodes. Topview is an agent and agentic canvas system that can plan, generate, compare, refine, manage assets, and learn reusable skills from the creator's workflow.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap reveal">
+      <h2>Start with an idea. Leave with a video.</h2>
+      <a class="btn btn-primary btn-lg" href="#creator">Open the creator</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p><span class="logo-mark small" aria-hidden="true"></span> Topview clone — local practical-test replica.</p>
+    <p>Original code &amp; placeholder visuals only; not affiliated with Topview. See README.md.</p>
+  </div>
+</footer>
+<script src="/assets/topview.js"></script>
+</body>
+</html>

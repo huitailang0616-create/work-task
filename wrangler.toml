@@ -1,0 +1,13 @@
+# Cloudflare Worker / Pages static deployment placeholder.
+# Do NOT put account_id, API tokens, or any credentials in this file.
+# The parent agent will fill deployment details later, after Margaret
+# selects a GitHub repository and a Worker name.
+name = "work-task"
+compatibility_date = "2026-11-05"
+
+# Static assets (Wrangler assets binding for Workers static sites):
+[assets]
+directory = "./public"
+# binding = "ASSETS"  # uncomment if a Worker script is added later
+
+# Alternative: deploy ./public as a Cloudflare Pages project with no build command.
