@@ -1,86 +1,129 @@
-# Web Clone Test — Local Replica
+# Web Clone Test — v2 (high-fidelity rebuild)
 
-Local static replica built for Margaret's practical test. It recreates the
-layout, colour tone, and main interactions of two publicly visible pages
-using original, hand-written HTML/CSS/JS and CSS/SVG placeholder visuals.
-No original site code or image assets were copied, nothing is deployed,
-nothing was pushed to GitHub, and no account credentials are used anywhere.
+Rebuild of the v1 lookalike (`~/workspace/web-clone-test/`, untouched) following
+the **web-clone skill** methodology. v1 was written from page text alone with a
+self-invented palette and placeholder art; v2 is built from the originals'
+served source.
 
-## File structure
+## Method (per the skill)
+
+- **Skill used:** `Jane-xiaoer/claude-skill-web-clone` (MIT), cloned to
+  `~/workspace/custom-skills/web-clone-src/` and installed, adapted, as
+  `~/workspace/custom-skills/web-clone/`. Its recon scripts require a live
+  Playwright browser and hardcode the author's macOS paths, so recon here was
+  done manually in the skill's spirit: served-source first, no guessing.
+- **Step 1 — get the real source:** fetched the served HTML of both pages with
+  curl (Topview: 456 KB Next.js SSR; LumeFlow: 103 KB Nuxt SSR) plus every CSS
+  bundle (Topview 4 files; LumeFlow 19 files) and, for LumeFlow, all 32 JS
+  chunks and the lazy English locale chunk. Snapshots of the two HTML files are
+  kept in `RECON/served/`.
+- **Step 2 — recon:** palette/font/layout tokens extracted from the CSS;
+  section order and copy extracted from the SSR HTML, JSON-LD and RSC/Nuxt
+  payloads; LumeFlow's real option sets, defaults and credit table extracted
+  from its JS bundles; the inspiration grid was recovered from the original's
+  public inspiration API (23 items, full preset prompts). Full notes:
+  `RECON/topview-recon.md`, `RECON/lume-recon.md`; asset inventories:
+  `RECON/topview-assets.md`, `RECON/lume-assets.md`.
+- **Step 3 — rebuild:** hand-rebuilt static pages using the originals' real
+  palette, typography (self-hosted Outfit / Darker Grotesque / Instrument Sans
+  for Topview; Albert Sans for LumeFlow), section order, copy and publicly
+  served media (downloaded locally — no hotlinking). Tracking scripts were not
+  carried over. Generation actions remain front-end simulations.
+- Complexity per the skill's scale: Topview L3/L4 (Next content frontend with
+  heavy motion), LumeFlow page L3 front end over an L6 SaaS (login/credits/API
+  not cloned; display layer + simulated generation only).
+
+## Structure
 
 ```
-web-clone-test/
-├── README.md
-├── wrangler.toml          # deployment placeholder only — no account info
-└── public/                # static root (point Cloudflare assets/Pages here)
-    ├── index.html         # route /         → Topview homepage replica
-    ├── ugc-ads/
-    │   └── index.html     # route /ugc-ads/ → LumeFlow UGC Ads replica
+web-clone-test-v2/
+├── README.md / VERIFY.md
+├── wrangler.toml            # copied from v1 — name stays "work-task"
+├── RECON/                   # recon notes, asset manifests, served HTML snapshots
+└── public/                  # 5.3 MB, 75 files
+    ├── index.html           # /          → Topview homepage
+    ├── ugc-ads/index.html   # /ugc-ads/  → LumeFlow UGC Ads
     └── assets/
-        ├── topview.css    # Topview styles
-        ├── topview.js     # Topview interactions
-        ├── lume.css       # LumeFlow styles
-        └── ugc.js         # LumeFlow interactions
+        ├── topview.css / topview.js
+        ├── lume.css / ugc.js / inspiration-data.js  (23 real inspiration presets)
+        ├── fonts/           # Outfit, Darker Grotesque, Instrument Sans, Albert Sans
+        ├── img/topview/     # real logo, model-brand SVGs, plugin slides, pillar posters
+        ├── img/lume/        # real logo, model icons, avatar previews, 23 inspiration thumbs
+        └── video/topview/   # Canvas / Drama Studio / Board pillar MP4s (~1 MB each)
 ```
 
-Later, deployment only needs: pick a Worker/Pages name, deploy `public/`
-as static assets, and return the first access URL. That step requires
-GitHub repository selection and Cloudflare account access, intentionally
-not handled here.
+Deploy shape is identical to v1: point the existing `work-task` Worker at
+`public/` (wrangler.toml already in place). The parent agent handles the
+GitHub push and Cloudflare redeploy; the access URL does not change.
 
-## Implemented interactions
+## Interactions
 
-### `/` — Topview replica
-- Sticky header that gains a background/shadow on scroll; mobile nav toggle.
-- Hero creator box: Idea / Script / Product URL / Reference video mode tabs
-  that change the placeholder, suggestion chips that fill the input, live
-  character count (0/600).
-- "Create video" button runs a simulated agent plan (4 steps animate in
-  sequence with a status line); explicitly labelled as a front-end demo.
-- Capability comparison table (Traditional Manual Production vs Generic AI
-  Video Tools vs TopView Agent) with the 6 verified rows: Creative Input,
-  Reference Video Recreation, Image+Video Workflow, Narrative Production,
-  Platform Formats, Localization — row hover + highlighted TopView column.
-- Canvas / Drama Studio / Board feature cards with hover lift.
-- Scroll-reveal animations via IntersectionObserver.
-- FAQ accordion (10 questions), single-open behaviour.
+### `/` — Topview
+- Sticky glass header (blur, original gradient) with 4 working nav dropdowns
+  (Use Cases / AI Tools / Resources / Models), mobile hamburger menu.
+- Composer: 4 mode tabs (Video Agent / Drama Studio / AI Video / AI Image)
+  that swap placeholders; rotating example placeholder (6 real prompts, pauses
+  on focus/typing); `+` file picker that references the chosen file; model and
+  agent pills cycling the original's named options (Seedance 2.5/2.0, Topview
+  T1, Wan 3.0, MiniMax H3; GPT-6 Luna/Astra); send button runs a labelled
+  4-step simulated agent plan.
+- Skill-chip marquee (CSS loop, pause on hover) + "More Skills" pill.
+- Model cards with the real brand SVGs and gold UNLIMITED badges; plugin
+  wordmark + 5 real slide images in a slow marquee.
+- Community: 5 category tabs switching the original's 15 example prompts;
+  clicking a prompt loads it into the composer.
+- Product pillars with the originals' actual MP4s (autoplay/muted/loop) for
+  Canvas, Drama Studio and Board; poster-only for 3D Shot Composer.
+- Comparison table (real 7-row content), model-orchestration rows, tools
+  cloud with Hot badges, stats band, case study, two-row testimonial marquee
+  (10 real reviews recovered from the page payload), FAQ accordion with the
+  10 real Q&As (from the page's JSON-LD), 9-column footer with the real
+  addresses. Scroll-reveal throughout.
 
-### `/ugc-ads/` — LumeFlow UGC Ads replica
-- Model header: "Seedance 2.0 — Create cinematic ad videos with smooth
-  motion and realistic visuals."
-- Product upload and Avatar (optional) upload: click / Enter / drag-and-drop,
-  local in-browser image preview (object URL, never uploaded anywhere),
-  remove button.
-- Prompt textarea with live 0/5000 character counter.
-- Language select; Resolution segmented control (480P / 720P / 1080P);
-  Duration segmented control (5s / 10s / 15s); Outputs segmented control
-  (1–4); Aspect Ratio pills (Auto / 16:9 / 4:3 / 1:1 / 3:4 / 9:16 / 21:9) —
-  all single-select with a clear active state.
-- Generate Audio toggle switch.
-- Generate button: simulated loading (spinner, staged status text,
-  progress bar) for ~3.4 s, then 1–4 gradient result placeholder cards
-  labelled with the chosen ratio/resolution/duration/audio settings, plus
-  a session History entry. No real or paid API is called.
-- History / Inspiration tabs; Inspiration cards are CSS placeholder art
-  whose "Use prompt" action fills the prompt box.
-- FAQ accordion (3 questions).
+### `/ugc-ads/` — LumeFlow UGC Ads
+- App shell: 77px left rail with the original's nav sections (New/Hot tags),
+  60px header with UGC Video / Ad Video / AI Commercial switcher, credits pill
+  (magenta, balance 0), 16-language menu, Login button.
+- Model selector with dropdown: Seedance 2.0 (default) and Pixverse V6, each
+  switching its real option sets — Seedance resolutions 480P/720P/1080P,
+  Pixverse 360P/540P/720P/1080P; ratio sets differ per model too.
+- Product (required) and Avatar (optional) upload slots, 20 MB / ≥300px /
+  PNG·WEBP·JPEG rules, local preview + remove; avatar slot shows the original's
+  4 stacked preview faces when empty.
+- Prompt with 0/5000 counter and the original placeholder; Language select
+  with the real 16 options; **Duration is the original's 4s–15s slider**
+  (every whole second) with stepper box; Aspect Ratio buttons with
+  ratio-shaped icons (Auto default on Seedance, 9:16 on Pixverse);
+  Generate Audio switch (default on, original tip text); Outputs 1–4.
+- Sticky Create bar: **Credits Required computed from the original's Seedance
+  price table** (per-second 12/28/78 coins × duration × outputs; default combo
+  = 60). Create stays disabled until product + prompt exist — the original's
+  rule. Clicking Create runs a staged simulation and adds History items with
+  Reprompt / Regenerate / Download / Enhance / Delete actions.
+- History / Inspiration tabs. Inspiration shows the 23 real presets (real
+  thumbnails, names, hot values); "try this" applies the item's full preset
+  prompt and artwork to the form, like the original. History's empty state
+  uses the original hero copy and artwork. The page's 3 FAQs live in JSON-LD
+  in the head, exactly as the original serves them (it has no on-page FAQ
+  section — v1 invented one; removed).
 
-## Local preview
+## Honest fidelity gaps
 
-```bash
-cd ~/workspace/web-clone-test
-python3 -m http.server 8787 --directory public
-# Home:     http://localhost:8787/
-# UGC Ads:  http://localhost:8787/ugc-ads/
-```
-
-Any other static server works the same way (e.g. `npx serve public`).
-
-## Verification notes (build time)
-
-- Both source pages were checked via public web page text only
-  (browser search/open). Their original HTML/CSS/JS and image files were
-  not downloaded or copied.
-- Verified locally with a static server + HTTP checks (200 responses for
-  `/`, `/ugc-ads/`, and all CSS/JS assets) and a Node syntax check of
-  both JS files plus a tag-balance smoke test of both HTML files.
+- **No live-browser visual diff** was possible in this environment, so pixel
+  spacing is matched to CSS tokens and structure, not screenshot-verified.
+- **Topview nav dropdown contents** are not in the served HTML (client-side);
+  the clone's panels are assembled from the page's own footer/tool link sets.
+- **Topview "quick starts" and "feature cases" sections are empty in SSR** —
+  omitted rather than invented. Community-case imagery does not exist in the
+  served source; the prompt cards are text-only.
+- **3D Shot Composer** uses its poster image; its 2.5 MB MP4 was skipped to
+  keep the bundle lean. Testimonial avatars (client-side paths) are omitted.
+- **LumeFlow modals** (Product source modal with link import, Avatar library
+  modal) are represented by direct in-slot upload; the avatar library and
+  product-link import need the original's authenticated APIs.
+- **Pixverse V6 credits** are shown as "–": its pricing uses a different
+  strategy class in source and was not transcribed; Seedance pricing is exact.
+- Rotating composer placeholders beyond the first are the site's own community
+  prompts (the original's rotation list is client-side).
+- Both pages' real generation, accounts, credits and history persistence are
+  back-end features; the clone simulates them in the front end only.

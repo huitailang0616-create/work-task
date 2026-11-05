@@ -3,189 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LumeFlow Clone — AI UGC Ads Generator (local test replica)</title>
-<meta name="description" content="Local static replica of an AI UGC ads tool page for a practical test. Original code, placeholder visuals, front-end simulation only.">
+<title>AI UGC Ads Generator | Create UGC Videos with LumeFlow AI</title>
+<meta name="description" content="Create AI UGC ads with LumeFlow AI. Generate authentic-looking UGC videos, product demos, and creator-style ads for e-commerce, TikTok, and social media campaigns.">
+<link rel="icon" href="/assets/img/lume/favicon.ico">
 <link rel="stylesheet" href="/assets/lume.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is an AI UGC ads generator?","acceptedAnswer":{"@type":"Answer","text":"An AI UGC ads generator uses artificial intelligence to create creator-style advertising videos that look like user-generated content. It helps brands produce product demos, testimonials, and social media ads faster."}},
+{"@type":"Question","name":"Can LumeFlow AI create UGC videos for products?","acceptedAnswer":{"@type":"Answer","text":"Yes. LumeFlow AI can transform product images, concepts, or text prompts into engaging UGC-style videos designed for e-commerce, TikTok, and social media marketing."}},
+{"@type":"Question","name":"Can AI-generated UGC ads be used for social media campaigns?","acceptedAnswer":{"@type":"Answer","text":"Yes. AI-generated UGC ads can be used as creative assets for social media platforms, helping brands create more variations of promotional videos and product content."}}]}
+</script>
 </head>
 <body>
-<header class="app-header">
-  <div class="app-wrap header-row">
-    <a class="app-logo" href="/ugc-ads/"><span class="lf-mark" aria-hidden="true"></span>LumeFlow<span class="clone-tag">clone</span></a>
-    <nav class="app-nav">
-      <a href="/">Topview demo</a>
-      <a href="#history">History</a>
-      <a href="#faq">FAQ</a>
+<div class="app-shell">
+  <!-- Left rail -->
+  <aside class="rail" aria-label="LumeFlow">
+    <a class="rail-logo" href="/ugc-ads/" aria-label="LumeFlow home"><img src="/assets/img/lume/logo-lumeflow.svg" alt="LumeFlow"></a>
+    <nav class="rail-nav">
+      <a href="/ugc-ads/">Home</a>
+      <a href="#inspirationPane" data-goto-tab="inspiration">Inspiration</a>
+      <a href="#historyPane" data-goto-tab="history">My Creations</a>
+      <p class="rail-sec">AI Creation</p>
+      <a href="/ugc-ads/" class="is-active">Video Generate</a>
+      <a href="/ugc-ads/">Image Generate</a>
+      <a href="/ugc-ads/">Marketing Studio <span class="tag-new">New</span></a>
+      <p class="rail-sec">AI Effects</p>
+      <a href="/ugc-ads/">Video Effects <span class="tag-hot">Hot</span></a>
+      <a href="/ugc-ads/">Image Effects</a>
+      <p class="rail-sec">AI Tools</p>
+      <a href="/ugc-ads/">Extend Video</a>
+      <a href="/ugc-ads/">Edit Video</a>
+      <a href="/ugc-ads/">AI Enhance</a>
+      <a href="/ugc-ads/">Mimic</a>
+      <a href="/ugc-ads/">Lip Sync</a>
+      <a href="/ugc-ads/">AI Story</a>
     </nav>
-    <span class="credits" title="Placeholder only">Credits · demo</span>
-  </div>
-</header>
+    <div class="rail-bottom">
+      <a href="#footer-note">Contact US</a>
+      <a class="rail-upgrade" href="#createBar">Upgrade Now</a>
+    </div>
+  </aside>
 
-<main class="app-wrap app-main">
-  <div class="tool-layout">
-    <!-- Controls -->
-    <section class="panel controls" aria-label="Generator controls">
-      <div class="model-head">
-        <div>
-          <h1>AI UGC Ads Generator</h1>
-          <p class="model-name">Seedance 2.0</p>
-          <p class="model-desc">Create cinematic ad videos with smooth motion and realistic visuals.</p>
-        </div>
-        <span class="model-badge">Video</span>
+  <div class="app-main-col">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="page-switcher" role="tablist" aria-label="Marketing Studio pages">
+        <a href="/ugc-ads/" class="is-active" role="tab" aria-selected="true">UGC Video</a>
+        <a href="/ugc-ads/" role="tab" aria-selected="false">Ad Video</a>
+        <a href="/ugc-ads/" role="tab" aria-selected="false">AI Commercial</a>
       </div>
-
-      <div class="field">
-        <span class="field-label" id="productLabel">Product</span>
-        <div class="upload-box" id="productUpload" role="button" tabindex="0" aria-labelledby="productLabel">
-          <input type="file" id="productFile" accept="image/*" hidden>
-          <div class="upload-empty">
-            <span class="upload-icon" aria-hidden="true">＋</span>
-            <p>Click to upload an image</p>
-            <p class="upload-hint">Product photo — preview stays in your browser</p>
-          </div>
-          <img class="upload-preview" id="productPreview" alt="Product preview" hidden>
-          <button class="upload-remove" id="productRemove" type="button" hidden>Remove</button>
+      <div class="header-right">
+        <span class="credits-pill" title="Credits balance (demo)"><span class="diamond">◆</span> <span id="creditsBalance">0</span> <a href="#createBar" class="credits-upgrade">upgrade</a></span>
+        <div class="lang-wrap">
+          <button class="header-lang" id="headerLangBtn" type="button" aria-expanded="false"><img src="/assets/img/lume/language-icon.svg" alt="" width="16" height="16"> English ▾</button>
+          <div class="lang-menu" id="headerLangMenu" hidden></div>
         </div>
+        <button class="btn-login" type="button">Login</button>
       </div>
+    </header>
 
-      <div class="field">
-        <span class="field-label" id="avatarLabel">Avatar <em>(optional)</em></span>
-        <div class="upload-box small" id="avatarUpload" role="button" tabindex="0" aria-labelledby="avatarLabel">
-          <input type="file" id="avatarFile" accept="image/*" hidden>
-          <div class="upload-empty">
-            <span class="upload-icon" aria-hidden="true">＋</span>
-            <p>Click to upload an image</p>
-            <p class="upload-hint">Creator / presenter photo</p>
-          </div>
-          <img class="upload-preview" id="avatarPreview" alt="Avatar preview" hidden>
-          <button class="upload-remove" id="avatarRemove" type="button" hidden>Remove</button>
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="label-row">
-          <label class="field-label" for="promptInput">Prompt</label>
-          <span class="counter"><span id="promptCount">0</span>/5000</span>
-        </div>
-        <textarea id="promptInput" rows="5" maxlength="5000" placeholder="Describe your UGC ad… e.g. a creator unboxes the product at a sunny kitchen table, talks to camera, and shows the result in the last 3 seconds"></textarea>
-      </div>
-
-      <div class="grid-2">
+    <!-- Editor -->
+    <main class="editor">
+      <!-- Form column -->
+      <section class="form-col" aria-label="Generator controls">
         <div class="field">
-          <label class="field-label" for="langSelect">Language</label>
-          <select id="langSelect">
-            <option selected>English</option>
-            <option>中文 (Chinese)</option>
-            <option>Español</option>
-            <option>日本語 (Japanese)</option>
-            <option>Français</option>
-            <option>Deutsch</option>
-          </select>
+          <span class="field-label">Model</span>
+          <div class="model-select" id="modelSelect">
+            <button class="model-current" id="modelCurrent" type="button" aria-expanded="false">
+              <img id="modelIcon" src="/assets/img/lume/model-icon-seedance.png" alt="" width="36" height="36">
+              <span class="model-text"><strong id="modelName">Seedance 2.0</strong><small id="modelDesc">Create cinematic ad videos with smooth motion and realistic visuals.</small></span>
+              <span class="chev">▾</span>
+            </button>
+            <div class="model-panel" id="modelPanel" hidden>
+              <button class="model-row is-active" type="button" data-model="seedance">
+                <img src="/assets/img/lume/model-icon-seedance.png" alt="" width="36" height="36">
+                <span class="model-text"><strong>Seedance 2.0</strong><small>Create cinematic ad videos with smooth motion and realistic visuals.</small></span>
+                <span class="model-chips"><span class="chip">4s-15s</span><span class="chip chip-audio">audio support</span></span>
+              </button>
+              <button class="model-row" type="button" data-model="pixverse">
+                <img src="/assets/img/lume/model-icon-pixverse.svg" alt="" width="36" height="36">
+                <span class="model-text"><strong>Pixverse V6</strong><small>Generate engaging marketing videos with dynamic effects and fast results.</small></span>
+                <span class="model-chips"><span class="chip">4s-15s</span><span class="chip chip-audio">audio support</span></span>
+              </button>
+            </div>
+          </div>
         </div>
+
+        <div class="upload-row">
+          <div class="field">
+            <span class="field-label" id="productLabel">Product</span>
+            <div class="upload-box" id="productUpload" role="button" tabindex="0" aria-labelledby="productLabel">
+              <input type="file" id="productFile" accept="image/png,image/webp,image/jpeg,image/jpg" hidden>
+              <div class="upload-empty">
+                <span class="upload-plus" aria-hidden="true">+</span>
+                <p>Click to upload an image</p>
+              </div>
+              <img class="upload-preview" id="productPreview" alt="Product preview" hidden>
+              <button class="upload-remove" id="productRemove" type="button" hidden aria-label="Remove product image">×</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="avatarLabel">Avatar <em>(optional)</em></span>
+            <div class="upload-box" id="avatarUpload" role="button" tabindex="0" aria-labelledby="avatarLabel">
+              <input type="file" id="avatarFile" accept="image/png,image/webp,image/jpeg,image/jpg" hidden>
+              <div class="upload-empty">
+                <span class="avatar-stack" aria-hidden="true">
+                  <img src="/assets/img/lume/avatar-preview-01.png" alt=""><img src="/assets/img/lume/avatar-preview-02.png" alt=""><img src="/assets/img/lume/avatar-preview-03.png" alt=""><img src="/assets/img/lume/avatar-preview-04.png" alt="">
+                </span>
+                <p>Click to upload an image</p>
+              </div>
+              <img class="upload-preview" id="avatarPreview" alt="Avatar preview" hidden>
+              <button class="upload-remove" id="avatarRemove" type="button" hidden aria-label="Remove avatar image">×</button>
+            </div>
+          </div>
+        </div>
+        <p class="upload-rules">PNG / WEBP / JPEG · max 20 MB · min 300px (from the original's upload rules)</p>
+
+        <div class="field">
+          <div class="label-row">
+            <label class="field-label" for="promptInput">Prompt</label>
+            <span class="counter"><span id="promptCount">0</span>/5000</span>
+          </div>
+          <textarea id="promptInput" rows="5" maxlength="5000" placeholder="Describe the scene, selling points, and what happens in the video..."></textarea>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="langSelect"><img src="/assets/img/lume/language-icon.svg" alt="" width="15" height="15"> Language</label>
+          <select id="langSelect" class="lang-select"></select>
+        </div>
+
         <div class="field">
           <span class="field-label">Resolution</span>
-          <div class="segmented" data-group="resolution" role="radiogroup" aria-label="Resolution">
-            <button type="button" role="radio" aria-checked="false" data-value="480P">480P</button>
-            <button type="button" role="radio" aria-checked="true" data-value="720P" class="is-active">720P</button>
-            <button type="button" role="radio" aria-checked="false" data-value="1080P">1080P</button>
-          </div>
+          <div class="tabs-control" data-group="resolution" role="radiogroup" aria-label="Resolution"></div>
         </div>
-      </div>
 
-      <div class="grid-2">
         <div class="field">
-          <span class="field-label">Duration</span>
-          <div class="segmented" data-group="duration" role="radiogroup" aria-label="Duration">
-            <button type="button" role="radio" aria-checked="true" data-value="5s" class="is-active">5s</button>
-            <button type="button" role="radio" aria-checked="false" data-value="10s">10s</button>
-            <button type="button" role="radio" aria-checked="false" data-value="15s">15s</button>
+          <div class="label-row">
+            <span class="field-label">Duration</span>
+            <span class="duration-num"><button type="button" id="durMinus" aria-label="Decrease duration">−</button><span id="durValue">5s</span><button type="button" id="durPlus" aria-label="Increase duration">+</button></span>
           </div>
+          <input type="range" id="durSlider" min="4" max="15" step="1" value="5" aria-label="Duration in seconds">
+          <div class="slider-ticks"><span>4s</span><span>15s</span></div>
         </div>
+
+        <div class="field">
+          <span class="field-label">Aspect Ratio</span>
+          <div class="size-control" data-group="ratio" role="radiogroup" aria-label="Aspect Ratio"></div>
+        </div>
+
+        <div class="field audio-row">
+          <div>
+            <span class="field-label">Generate Audio</span>
+            <p class="audio-tip">This model does not support disabling sound effects.</p>
+          </div>
+          <button class="switch is-on" id="audioSwitch" role="switch" aria-checked="true" type="button"><span class="knob"></span></button>
+        </div>
+
         <div class="field">
           <span class="field-label">Outputs</span>
-          <div class="segmented" data-group="outputs" role="radiogroup" aria-label="Outputs">
+          <div class="tabs-control" data-group="outputs" role="radiogroup" aria-label="Outputs">
             <button type="button" role="radio" aria-checked="true" data-value="1" class="is-active">1</button>
             <button type="button" role="radio" aria-checked="false" data-value="2">2</button>
             <button type="button" role="radio" aria-checked="false" data-value="3">3</button>
             <button type="button" role="radio" aria-checked="false" data-value="4">4</button>
           </div>
         </div>
-      </div>
 
-      <div class="field">
-        <span class="field-label">Aspect Ratio</span>
-        <div class="pills" data-group="ratio" role="radiogroup" aria-label="Aspect Ratio">
-          <button type="button" role="radio" aria-checked="true" data-value="Auto" class="is-active">Auto</button>
-          <button type="button" role="radio" aria-checked="false" data-value="16:9">16:9</button>
-          <button type="button" role="radio" aria-checked="false" data-value="4:3">4:3</button>
-          <button type="button" role="radio" aria-checked="false" data-value="1:1">1:1</button>
-          <button type="button" role="radio" aria-checked="false" data-value="3:4">3:4</button>
-          <button type="button" role="radio" aria-checked="false" data-value="9:16">9:16</button>
-          <button type="button" role="radio" aria-checked="false" data-value="21:9">21:9</button>
+        <div class="create-bar" id="createBar">
+          <p class="credits-line">Credits Required：<strong id="creditsValue">60</strong></p>
+          <button class="btn-create" id="createBtn" type="button" disabled>Create</button>
+          <p class="sim-note">Front-end simulation — no API is called and no credits are spent.</p>
         </div>
-      </div>
+      </section>
 
-      <div class="field toggle-row">
-        <div>
-          <span class="field-label">Generate Audio</span>
-          <p class="toggle-hint">Voice, ambience and music in the mock output</p>
+      <!-- Right area -->
+      <section class="stage" aria-label="Results">
+        <div class="stage-tabs" role="tablist">
+          <button class="stage-tab" data-tab="history" role="tab" aria-selected="false" type="button">History</button>
+          <button class="stage-tab is-active" data-tab="inspiration" role="tab" aria-selected="true" type="button">Inspiration</button>
         </div>
-        <button class="switch is-on" id="audioSwitch" role="switch" aria-checked="true" type="button"><span class="knob"></span></button>
-      </div>
 
-      <button class="btn-generate" id="generateBtn" type="button">Generate</button>
-      <p class="gen-note" id="genNote">Front-end simulation only — no API is called and no credits are used.</p>
-    </section>
-
-    <!-- Output -->
-    <section class="panel output-panel" aria-label="Output">
-      <div class="tabs" role="tablist">
-        <button class="tab is-active" data-tab="history" role="tab" aria-selected="true" type="button" id="history">History</button>
-        <button class="tab" data-tab="inspiration" role="tab" aria-selected="false" type="button">Inspiration</button>
-      </div>
-
-      <div class="tab-pane" id="pane-history">
-        <div class="output-stage" id="outputStage">
-          <div class="empty-state" id="emptyState">
-            <div class="empty-art" aria-hidden="true"></div>
-            <p>Your generated UGC ads will appear here.</p>
-            <p class="empty-sub">Upload a product image, write a prompt, then press Generate.</p>
+        <div class="stage-pane" id="historyPane" hidden>
+          <div class="empty-hero" id="emptyHero">
+            <h1>AI UGC Creator — Turn Products into Authentic Creator Content</h1>
+            <p>Create engaging creator-style videos that build trust and drive conversions.</p>
+            <div class="empty-media">
+              <img src="/assets/img/lume/product-cover.webp" alt="UGC creator preview">
+              <img class="empty-art" src="/assets/img/lume/empty-image.png" alt="">
+            </div>
           </div>
-          <div class="loading-state" id="loadingState" hidden>
+          <div class="progress-box" id="progressBox" hidden>
             <div class="spinner" aria-hidden="true"></div>
-            <p id="loadingText">Analyzing product image…</p>
+            <p id="progressText">Generating your UGC ad…</p>
             <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
           </div>
-          <div class="results-grid" id="resultsGrid"></div>
+          <ul class="history-list" id="historyList"></ul>
         </div>
-        <div class="history-list-wrap">
-          <h2 class="side-h">Session history</h2>
-          <ul class="history-list" id="historyList">
-            <li class="history-empty">No runs yet in this session.</li>
-          </ul>
-        </div>
-      </div>
 
-      <div class="tab-pane" id="pane-inspiration" hidden>
-        <div class="inspo-grid" id="inspoGrid"></div>
-        <p class="empty-sub">Pick a card to drop its prompt into the generator — all artwork here is CSS placeholder art, not copied media.</p>
-      </div>
-    </section>
+        <div class="stage-pane" id="inspirationPane">
+          <div class="inspo-grid" id="inspoGrid"></div>
+          <p class="inspo-note">Real presets recovered from the original's public inspiration feed. “Try this” loads the preset prompt and artwork into the form — generation itself is simulated.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer" id="footer-note">
+      <p>LumeFlow UGC Ads clone — local practical-test replica rebuilt with the web-clone skill methodology from the public page source. Not affiliated with LumeFlow.</p>
+    </footer>
   </div>
-
-  <!-- FAQ -->
-  <section class="panel faq-panel" id="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">What is an AI UGC ads generator?<span class="faq-icon">+</span></button><div class="faq-a"><p>An AI UGC ads generator uses artificial intelligence to create creator-style advertising videos that look like user-generated content. It helps brands produce product demos, testimonials, and social media ads faster.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can LumeFlow AI create UGC videos for products?<span class="faq-icon">+</span></button><div class="faq-a"><p>Yes. LumeFlow AI can transform product images, concepts, or text prompts into engaging UGC-style videos designed for e-commerce, TikTok, and social media marketing.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can AI-generated UGC ads be used for social media campaigns?<span class="faq-icon">+</span></button><div class="faq-a"><p>Yes. AI-generated UGC ads can be used as creative assets for social media platforms, helping brands create more variations of promotional videos and product content.</p></div></div>
-    </div>
-  </section>
-
-  <footer class="app-footer">
-    <p>LumeFlow clone — local practical-test replica. Original code &amp; placeholder visuals only; not affiliated with LumeFlow. See README.md.</p>
-  </footer>
-</main>
+</div>
+<script src="/assets/inspiration-data.js"></script>
 <script src="/assets/ugc.js"></script>
 </body>
 </html>
