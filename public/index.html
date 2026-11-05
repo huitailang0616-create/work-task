@@ -1,218 +1,409 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI UGC Ads Generator | Create UGC Videos with LumeFlow AI</title>
-<meta name="description" content="Create AI UGC ads with LumeFlow AI. Generate authentic-looking UGC videos, product demos, and creator-style ads for e-commerce, TikTok, and social media campaigns.">
-<link rel="icon" href="/assets/img/lume/favicon.ico">
-<link rel="stylesheet" href="/assets/lume.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What is an AI UGC ads generator?","acceptedAnswer":{"@type":"Answer","text":"An AI UGC ads generator uses artificial intelligence to create creator-style advertising videos that look like user-generated content. It helps brands produce product demos, testimonials, and social media ads faster."}},
-{"@type":"Question","name":"Can LumeFlow AI create UGC videos for products?","acceptedAnswer":{"@type":"Answer","text":"Yes. LumeFlow AI can transform product images, concepts, or text prompts into engaging UGC-style videos designed for e-commerce, TikTok, and social media marketing."}},
-{"@type":"Question","name":"Can AI-generated UGC ads be used for social media campaigns?","acceptedAnswer":{"@type":"Answer","text":"Yes. AI-generated UGC ads can be used as creative assets for social media platforms, helping brands create more variations of promotional videos and product content."}}]}
-</script>
+<title>AI Video Agent for Short Films &amp; Marketing Videos | Topview</title>
+<meta name="description" content="Create short films, marketing videos, and ads from scripts, references, or product URLs. Topview's AI Video Agent plans and creates every scene on one canvas.">
+<link rel="stylesheet" href="/assets/topview.css">
 </head>
 <body>
-<div class="app-shell">
-  <!-- Left rail -->
-  <aside class="rail" aria-label="LumeFlow">
-    <a class="rail-logo" href="/ugc-ads/" aria-label="LumeFlow home"><img src="/assets/img/lume/logo-lumeflow.svg" alt="LumeFlow"></a>
-    <nav class="rail-nav">
-      <a href="/ugc-ads/">Home</a>
-      <a href="#inspirationPane" data-goto-tab="inspiration">Inspiration</a>
-      <a href="#historyPane" data-goto-tab="history">My Creations</a>
-      <p class="rail-sec">AI Creation</p>
-      <a href="/ugc-ads/" class="is-active">Video Generate</a>
-      <a href="/ugc-ads/">Image Generate</a>
-      <a href="/ugc-ads/">Marketing Studio <span class="tag-new">New</span></a>
-      <p class="rail-sec">AI Effects</p>
-      <a href="/ugc-ads/">Video Effects <span class="tag-hot">Hot</span></a>
-      <a href="/ugc-ads/">Image Effects</a>
-      <p class="rail-sec">AI Tools</p>
-      <a href="/ugc-ads/">Extend Video</a>
-      <a href="/ugc-ads/">Edit Video</a>
-      <a href="/ugc-ads/">AI Enhance</a>
-      <a href="/ugc-ads/">Mimic</a>
-      <a href="/ugc-ads/">Lip Sync</a>
-      <a href="/ugc-ads/">AI Story</a>
+<div class="promo-banner">Seedance 2.5 $3.6 / 30s · 30-Day Unlimited&nbsp;&nbsp;|&nbsp;&nbsp;365-Day Unlimited: Wan 3.0 &amp; MiniMax H3 &amp; GPT Image 2.5</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="nav-row">
+    <a class="logo" href="/" aria-label="Topview home"><img src="/assets/img/topview/logo-full.webp" alt="Topview" width="146" height="33"></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Main">
+      <div class="nav-item has-drop">
+        <button class="nav-link drop-btn" aria-expanded="false" type="button">Use Cases <span class="chev">▾</span></button>
+        <div class="drop-panel">
+          <a href="#six-ways">Advertising</a><a href="#six-ways">Affiliate Marketing</a><a href="#six-ways">Ecommerce</a><a href="#six-ways">DTC Brands</a><a href="#six-ways">AI Live Stream</a>
+        </div>
+      </div>
+      <div class="nav-item has-drop">
+        <button class="nav-link drop-btn" aria-expanded="false" type="button">AI Tools <span class="chev">▾</span></button>
+        <div class="drop-panel">
+          <a href="#tools">AI Video Agent</a><a href="#pillars">AI Canvas</a><a href="#pillars">AI Drama</a><a href="#tools">AI Image Generator</a><a href="#tools">Video Character Swap</a><a href="#tools">Motion Control</a><a href="#tools">Product Photography</a><a href="#tools">Voiceover</a>
+        </div>
+      </div>
+      <div class="nav-item has-drop">
+        <button class="nav-link drop-btn" aria-expanded="false" type="button">Resources <span class="chev">▾</span></button>
+        <div class="drop-panel">
+          <a href="#faq">FAQ</a><a href="#testimonials">Reviews</a><a href="#case-study">Case study</a><a href="#footer">Blog</a><a href="#footer">Learning Center</a>
+        </div>
+      </div>
+      <div class="nav-item has-drop">
+        <button class="nav-link drop-btn" aria-expanded="false" type="button">Models <span class="chev">▾</span></button>
+        <div class="drop-panel">
+          <a href="#models">Seedance 2.5</a><a href="#models">Topview T1</a><a href="#models">Wan 3.0</a><a href="#models">MiniMax H3</a><a href="#orchestration">Seedance 2.0</a><a href="#orchestration">GPT Image 2</a>
+        </div>
+      </div>
+      <a class="nav-link" href="#tools">MCP/Skill</a>
+      <a class="nav-link" href="#plugin">Plugin</a>
+      <a class="nav-link" href="#footer">API</a>
+      <a class="nav-link" href="#footer">Pricing</a>
     </nav>
-    <div class="rail-bottom">
-      <a href="#footer-note">Contact US</a>
-      <a class="rail-upgrade" href="#createBar">Upgrade Now</a>
+    <div class="nav-actions">
+      <a class="btn btn-login" href="#creator">Login</a>
+      <a class="btn btn-signup" href="#creator">Sign Up</a>
     </div>
-  </aside>
-
-  <div class="app-main-col">
-    <!-- Header -->
-    <header class="app-header">
-      <div class="page-switcher" role="tablist" aria-label="Marketing Studio pages">
-        <a href="/ugc-ads/" class="is-active" role="tab" aria-selected="true">UGC Video</a>
-        <a href="/ugc-ads/" role="tab" aria-selected="false">Ad Video</a>
-        <a href="/ugc-ads/" role="tab" aria-selected="false">AI Commercial</a>
-      </div>
-      <div class="header-right">
-        <span class="credits-pill" title="Credits balance (demo)"><span class="diamond">◆</span> <span id="creditsBalance">0</span> <a href="#createBar" class="credits-upgrade">upgrade</a></span>
-        <div class="lang-wrap">
-          <button class="header-lang" id="headerLangBtn" type="button" aria-expanded="false"><img src="/assets/img/lume/language-icon.svg" alt="" width="16" height="16"> English ▾</button>
-          <div class="lang-menu" id="headerLangMenu" hidden></div>
-        </div>
-        <button class="btn-login" type="button">Login</button>
-      </div>
-    </header>
-
-    <!-- Editor -->
-    <main class="editor">
-      <!-- Form column -->
-      <section class="form-col" aria-label="Generator controls">
-        <div class="field">
-          <span class="field-label">Model</span>
-          <div class="model-select" id="modelSelect">
-            <button class="model-current" id="modelCurrent" type="button" aria-expanded="false">
-              <img id="modelIcon" src="/assets/img/lume/model-icon-seedance.png" alt="" width="36" height="36">
-              <span class="model-text"><strong id="modelName">Seedance 2.0</strong><small id="modelDesc">Create cinematic ad videos with smooth motion and realistic visuals.</small></span>
-              <span class="chev">▾</span>
-            </button>
-            <div class="model-panel" id="modelPanel" hidden>
-              <button class="model-row is-active" type="button" data-model="seedance">
-                <img src="/assets/img/lume/model-icon-seedance.png" alt="" width="36" height="36">
-                <span class="model-text"><strong>Seedance 2.0</strong><small>Create cinematic ad videos with smooth motion and realistic visuals.</small></span>
-                <span class="model-chips"><span class="chip">4s-15s</span><span class="chip chip-audio">audio support</span></span>
-              </button>
-              <button class="model-row" type="button" data-model="pixverse">
-                <img src="/assets/img/lume/model-icon-pixverse.svg" alt="" width="36" height="36">
-                <span class="model-text"><strong>Pixverse V6</strong><small>Generate engaging marketing videos with dynamic effects and fast results.</small></span>
-                <span class="model-chips"><span class="chip">4s-15s</span><span class="chip chip-audio">audio support</span></span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="upload-row">
-          <div class="field">
-            <span class="field-label" id="productLabel">Product</span>
-            <div class="upload-box" id="productUpload" role="button" tabindex="0" aria-labelledby="productLabel">
-              <input type="file" id="productFile" accept="image/png,image/webp,image/jpeg,image/jpg" hidden>
-              <div class="upload-empty">
-                <span class="upload-plus" aria-hidden="true">+</span>
-                <p>Click to upload an image</p>
-              </div>
-              <img class="upload-preview" id="productPreview" alt="Product preview" hidden>
-              <button class="upload-remove" id="productRemove" type="button" hidden aria-label="Remove product image">×</button>
-            </div>
-          </div>
-          <div class="field">
-            <span class="field-label" id="avatarLabel">Avatar <em>(optional)</em></span>
-            <div class="upload-box" id="avatarUpload" role="button" tabindex="0" aria-labelledby="avatarLabel">
-              <input type="file" id="avatarFile" accept="image/png,image/webp,image/jpeg,image/jpg" hidden>
-              <div class="upload-empty">
-                <span class="avatar-stack" aria-hidden="true">
-                  <img src="/assets/img/lume/avatar-preview-01.png" alt=""><img src="/assets/img/lume/avatar-preview-02.png" alt=""><img src="/assets/img/lume/avatar-preview-03.png" alt=""><img src="/assets/img/lume/avatar-preview-04.png" alt="">
-                </span>
-                <p>Click to upload an image</p>
-              </div>
-              <img class="upload-preview" id="avatarPreview" alt="Avatar preview" hidden>
-              <button class="upload-remove" id="avatarRemove" type="button" hidden aria-label="Remove avatar image">×</button>
-            </div>
-          </div>
-        </div>
-        <p class="upload-rules">PNG / WEBP / JPEG · max 20 MB · min 300px (from the original's upload rules)</p>
-
-        <div class="field">
-          <div class="label-row">
-            <label class="field-label" for="promptInput">Prompt</label>
-            <span class="counter"><span id="promptCount">0</span>/5000</span>
-          </div>
-          <textarea id="promptInput" rows="5" maxlength="5000" placeholder="Describe the scene, selling points, and what happens in the video..."></textarea>
-        </div>
-
-        <div class="field">
-          <label class="field-label" for="langSelect"><img src="/assets/img/lume/language-icon.svg" alt="" width="15" height="15"> Language</label>
-          <select id="langSelect" class="lang-select"></select>
-        </div>
-
-        <div class="field">
-          <span class="field-label">Resolution</span>
-          <div class="tabs-control" data-group="resolution" role="radiogroup" aria-label="Resolution"></div>
-        </div>
-
-        <div class="field">
-          <div class="label-row">
-            <span class="field-label">Duration</span>
-            <span class="duration-num"><button type="button" id="durMinus" aria-label="Decrease duration">−</button><span id="durValue">5s</span><button type="button" id="durPlus" aria-label="Increase duration">+</button></span>
-          </div>
-          <input type="range" id="durSlider" min="4" max="15" step="1" value="5" aria-label="Duration in seconds">
-          <div class="slider-ticks"><span>4s</span><span>15s</span></div>
-        </div>
-
-        <div class="field">
-          <span class="field-label">Aspect Ratio</span>
-          <div class="size-control" data-group="ratio" role="radiogroup" aria-label="Aspect Ratio"></div>
-        </div>
-
-        <div class="field audio-row">
-          <div>
-            <span class="field-label">Generate Audio</span>
-            <p class="audio-tip" id="audioTip">This model does not support disabling sound effects.</p>
-          </div>
-          <button class="switch is-on" id="audioSwitch" role="switch" aria-checked="true" type="button"><span class="knob"></span></button>
-        </div>
-
-        <div class="field">
-          <span class="field-label">Outputs</span>
-          <div class="tabs-control" data-group="outputs" role="radiogroup" aria-label="Outputs">
-            <button type="button" role="radio" aria-checked="true" data-value="1" class="is-active">1</button>
-            <button type="button" role="radio" aria-checked="false" data-value="2">2</button>
-            <button type="button" role="radio" aria-checked="false" data-value="3">3</button>
-            <button type="button" role="radio" aria-checked="false" data-value="4">4</button>
-          </div>
-        </div>
-
-        <div class="create-bar" id="createBar">
-          <p class="credits-line">Credits Required：<strong id="creditsValue">60</strong></p>
-          <button class="btn-create" id="createBtn" type="button" disabled>Create</button>
-          <p class="sim-note">Front-end simulation — no API is called and no credits are spent.</p>
-        </div>
-      </section>
-
-      <!-- Right area -->
-      <section class="stage" aria-label="Results">
-        <div class="stage-tabs" role="tablist">
-          <button class="stage-tab" data-tab="history" role="tab" aria-selected="false" type="button">History</button>
-          <button class="stage-tab is-active" data-tab="inspiration" role="tab" aria-selected="true" type="button">Inspiration</button>
-        </div>
-
-        <div class="stage-pane" id="historyPane" hidden>
-          <div class="empty-hero" id="emptyHero">
-            <h1>AI UGC Creator — Turn Products into Authentic Creator Content</h1>
-            <p>Create engaging creator-style videos that build trust and drive conversions.</p>
-            <div class="empty-media">
-              <img src="/assets/img/lume/product-cover.webp" alt="UGC creator preview">
-              <img class="empty-art" src="/assets/img/lume/empty-image.png" alt="">
-            </div>
-          </div>
-          <div class="progress-box" id="progressBox" hidden>
-            <div class="spinner" aria-hidden="true"></div>
-            <p id="progressText">Generating your UGC ad…</p>
-            <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
-          </div>
-          <ul class="history-list" id="historyList"></ul>
-        </div>
-
-        <div class="stage-pane" id="inspirationPane">
-          <div class="inspo-grid" id="inspoGrid"></div>
-          <p class="inspo-note">Real presets recovered from the original's public inspiration feed. “Try this” loads the preset prompt and artwork into the form — generation itself is simulated.</p>
-        </div>
-      </section>
-    </main>
-
-    <footer class="app-footer" id="footer-note">
-      <p>LumeFlow UGC Ads clone — local practical-test replica rebuilt with the web-clone skill methodology from the public page source. Not affiliated with LumeFlow.</p>
-    </footer>
   </div>
-</div>
-<script src="/assets/inspiration-data.js"></script>
-<script src="/assets/ugc.js"></script>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner reveal">
+      <h1 class="hero-title">Create Any Video, Just Tell Your Agent</h1>
+      <p class="hero-sub">Describe your idea or add a script, reference video, or product URL. Topview plans scenes, selects the right models, generates assets, and keeps every shot editable on Canvas.</p>
+
+      <div class="composer" id="creator">
+        <div class="composer-modes" role="tablist" aria-label="Creation mode">
+          <button class="mode-tab is-active" data-mode="Video Agent" type="button" role="tab" aria-selected="true">Video Agent <span class="mode-sub">Canvas ▾</span></button>
+          <button class="mode-tab" data-mode="Drama Studio" type="button" role="tab" aria-selected="false">Drama Studio</button>
+          <button class="mode-tab" data-mode="AI Video" type="button" role="tab" aria-selected="false">AI Video</button>
+          <button class="mode-tab" data-mode="AI Image" type="button" role="tab" aria-selected="false">AI Image</button>
+        </div>
+        <label class="sr-only" for="composerInput">Ask Topview to create</label>
+        <textarea id="composerInput" rows="3" placeholder="Ask Topview to create a UGC-style product ad"></textarea>
+        <div class="composer-row">
+          <div class="composer-left">
+            <button class="round-btn" id="uploadBtn" type="button" aria-label="Upload file">+</button>
+            <input type="file" id="composerFile" hidden>
+            <button class="select-pill" id="modelSelect" type="button">Seedance 2.5 <span class="chev">▾</span></button>
+            <button class="select-pill" id="agentSelect" type="button">GPT-6 Luna <span class="chev">▾</span></button>
+          </div>
+          <button class="send-btn" id="sendBtn" type="button" aria-label="Create video">↑</button>
+        </div>
+        <div class="plan-sim" id="planSim" hidden>
+          <p class="plan-title">Agent plan — <span id="planMode">Video Agent</span> <span class="plan-status" id="planStatus">Planning…</span></p>
+          <ol class="plan-steps">
+            <li data-step>Read intent &amp; references</li>
+            <li data-step>Plan scenes, characters &amp; shots</li>
+            <li data-step>Select image / video / voice models</li>
+            <li data-step>Generate assets on Canvas</li>
+          </ol>
+          <p class="plan-note">Front-end simulation for this clone — no real generation happens here.</p>
+        </div>
+      </div>
+
+      <div class="skills-marquee" aria-label="Skills">
+        <div class="marquee-track" id="skillsTrack">
+          <span class="skill-chip">AI Video Agent</span><span class="skill-chip">AI Canvas</span><span class="skill-chip">AI Drama</span><span class="skill-chip">AI Image Generator</span><span class="skill-chip">Video Character Swap</span><span class="skill-chip">Video Upscale</span><span class="skill-chip">Motion Control</span><span class="skill-chip">Inpaint</span><span class="skill-chip">Virtual Try-On</span><span class="skill-chip">Product Photography</span><span class="skill-chip">Voiceover</span>
+        </div>
+        <a class="more-skills" href="#tools">More Skills ›</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Model cards -->
+  <section class="section" id="models">
+    <div class="wrap">
+      <div class="model-grid reveal">
+        <a class="model-card" href="#creator">
+          <span class="model-top"><img src="/assets/img/topview/model-bytedance.svg" alt="" class="model-logo"> Seedance 2.5 <span class="badge-gold">30 DAYS UNLIMITED</span></span>
+          <span class="model-copy">The most powerful model yet.</span>
+        </a>
+        <a class="model-card model-card-t1" href="#creator">
+          <span class="model-top"><img src="/assets/img/topview/model-topview-symbol.svg" alt="" class="model-logo"> Topview T1 <span class="badge-gold">30 DAYS UNLIMITED</span></span>
+          <span class="model-copy">Seedance 2.5 quality at 38% of the official price.</span>
+        </a>
+        <a class="model-card" href="#creator">
+          <span class="model-top"><img src="/assets/img/topview/model-wan.svg" alt="" class="model-logo"> Wan 3.0 <span class="badge-gold">365 DAYS UNLIMITED</span></span>
+          <span class="model-copy">Near-Seedance 2.5 quality at 30% of the price.</span>
+        </a>
+        <a class="model-card" href="#creator">
+          <span class="model-top"><img src="/assets/img/topview/model-minimax.svg" alt="" class="model-logo"> MiniMax H3 <span class="badge-gold">365 DAYS UNLIMITED</span></span>
+          <span class="model-copy">Near-Seedance 2.0 quality at 30% of the cost.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plugin banner -->
+  <section class="section" id="plugin">
+    <div class="wrap reveal">
+      <div class="plugin-head">
+        <img class="plugin-wordmark" src="/assets/img/topview/plugin-wordmark.webp" alt="Topview Plugin with GPT-6 Astra">
+        <a class="btn btn-signup btn-lg" href="#creator">Install Plugin</a>
+      </div>
+      <div class="plugin-marquee" aria-label="Plugin slides">
+        <div class="marquee-track slow" id="pluginTrack">
+          <figure><img src="/assets/img/topview/plugin-slide-1.jpeg" alt="Plugin Blender slide"><figcaption>Plugin Blender</figcaption></figure>
+          <figure><img src="/assets/img/topview/plugin-slide-2.webp" alt="Plugin Blender 2 slide"><figcaption>Plugin Blender 2</figcaption></figure>
+          <figure><img src="/assets/img/topview/plugin-slide-3.webp" alt="Plugin Codex slide"><figcaption>Plugin Codex</figcaption></figure>
+          <figure><img src="/assets/img/topview/plugin-slide-4.webp" alt="Depth Extraction slide"><figcaption>Depth Extraction</figcaption></figure>
+          <figure><img src="/assets/img/topview/plugin-slide-5.webp" alt="Plugin Blender 3 slide"><figcaption>Plugin Blender 3</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agent intro -->
+  <section class="section">
+    <div class="wrap wrap-text reveal">
+      <p class="eyebrow">The Smartest AI Video Agent</p>
+      <h2>Create Short Films and Marketing Videos with an AI Video Agent</h2>
+      <p class="section-sub">Describe your idea or add a script, reference video, or product URL. Topview plans scenes, selects the right models, generates assets, and keeps every shot editable on Canvas.</p>
+    </div>
+  </section>
+
+  <!-- Community prompt hints -->
+  <section class="section" id="community">
+    <div class="wrap reveal">
+      <h2 class="center">Community</h2>
+      <div class="cat-tabs" role="tablist" aria-label="Prompt categories" id="catTabs">
+        <button class="cat-tab is-active" data-cat="marketing" type="button" role="tab" aria-selected="true">Marketing Video</button>
+        <button class="cat-tab" data-cat="film" type="button" role="tab" aria-selected="false">Film &amp; Drama</button>
+        <button class="cat-tab" data-cat="clone" type="button" role="tab" aria-selected="false">Video Clone</button>
+        <button class="cat-tab" data-cat="social" type="button" role="tab" aria-selected="false">Social Media</button>
+        <button class="cat-tab" data-cat="image" type="button" role="tab" aria-selected="false">Image Design</button>
+      </div>
+      <div class="prompt-grid" id="promptGrid"></div>
+      <p class="prompt-note">Pick a prompt to load it into the composer. Nothing generates automatically.</p>
+    </div>
+  </section>
+
+  <!-- Product pillars -->
+  <section class="section" id="pillars">
+    <div class="wrap pillars">
+      <article class="pillar reveal">
+        <div class="pillar-text">
+          <h2>Canvas: Agent-Driven, Free-Form Video Creation</h2>
+          <p>You bring the idea and choose the direction. The agentic Canvas proposes scenes, creates assets, executes the production flow, and helps keep voice, characters, and visual identity consistent across multi-shot videos.</p>
+          <a class="pillar-link" href="#creator">Open Canvas ›</a>
+        </div>
+        <video class="pillar-media" autoplay muted loop playsinline preload="metadata" poster="/assets/img/topview/showcase-canvas-poster.webp" src="/assets/video/topview/canvas.mp4" aria-label="Canvas demo video"></video>
+      </article>
+      <article class="pillar reveal">
+        <div class="pillar-text">
+          <h2>Drama Studio: Professional Micro-Drama Production</h2>
+          <p>Create micro-dramas, mini dramas, vertical dramas, and short-form series from a novel, script, or plot, with consistent characters, scenes, visuals, and sound.</p>
+          <a class="pillar-link" href="#creator">Open Drama Studio ›</a>
+        </div>
+        <video class="pillar-media" autoplay muted loop playsinline preload="metadata" poster="/assets/img/topview/showcase-drama-poster.webp" src="/assets/video/topview/drama.mp4" aria-label="Drama Studio demo video"></video>
+      </article>
+      <article class="pillar reveal">
+        <div class="pillar-text">
+          <h2>Board: All-in-One Models and Asset Management</h2>
+          <p>Use image, video, audio, and avatar models in one place, then organize outputs for review, comparison, and reuse.</p>
+          <a class="pillar-link" href="#creator">Open Board ›</a>
+        </div>
+        <video class="pillar-media" autoplay muted loop playsinline preload="metadata" poster="/assets/img/topview/showcase-board-poster.webp" src="/assets/video/topview/board.mp4" aria-label="Board demo video"></video>
+      </article>
+      <article class="pillar reveal">
+        <div class="pillar-text">
+          <h2>3D Shot Composer: Stage Scenes and Control Camera Angles</h2>
+          <p>Place characters and props in a 3D scene, adjust the virtual camera, and generate consistent AI video shots from multiple angles before spending credits.</p>
+          <a class="pillar-link" href="#creator">Try 3D Shot Composer ›</a>
+        </div>
+        <img class="pillar-media" src="/assets/img/topview/showcase-3d-poster.webp" alt="3D Shot Composer preview">
+      </article>
+      <div class="pillar-links">
+        <a href="#pillars">AI Canvas</a><a href="#pillars">Drama Studio</a><a href="#pillars">Board</a><a href="#creator">AI Video Agent</a><a href="#tools">AI Video Generator</a><a href="#tools">AI Image Generator</a><a href="#tools">Topview Skill</a><a href="#footer">API</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teams -->
+  <section class="section" id="teams">
+    <div class="wrap reveal">
+      <p class="eyebrow">Topview for Teams</p>
+      <h2>Share Projects, Credits, and Assets Across the Team</h2>
+      <p class="section-sub">Give creators one place for team video collaboration while admins control credits and keep production materials organized. Built for enterprise marketing teams, agencies, and film or creative studios.</p>
+      <div class="cards-3">
+        <article class="mini-card"><h3>Collaborate on Video Projects</h3><p>Team members can work from shared projects in Canvas, Drama Studio, and Board, with references and outputs kept in one place.</p></article>
+        <article class="mini-card"><h3>Manage Team Credits</h3><p>Admins can share credits, monitor usage, and keep production spend under control across members and departments.</p></article>
+        <article class="mini-card"><h3>Organize Every Generated Asset</h3><p>Videos, images, audio, avatars, references, and approved materials stay grouped, reviewed, and reusable.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Six Ways -->
+  <section class="section" id="six-ways">
+    <div class="wrap reveal">
+      <p class="eyebrow">AI Video Agent for film, drama, and marketing</p>
+      <h2>Six Ways to Create Films, Short Dramas, and Ads with AI</h2>
+      <p class="section-sub">Topview AI Video Agent is built for film creators, micro-drama teams, marketers, and ecommerce brands. Use it as an AI film generator, AI movie maker, AI short drama generator, AI marketing video generator, and AI ad video generator in one creative workspace.</p>
+      <div class="cards-3 six-grid">
+        <article class="six-card accent-coral"><h3>AI Film and Cinematic Video Production</h3><p>Turn a scene idea, script, or visual reference into cinematic shots with camera movement, lighting, mood, character direction, and editable story structure. Topview works as an AI film generator and AI movie maker for creators who want film-style video without a full production crew.</p><a href="#creator">Create a film scene ›</a></article>
+        <article class="six-card accent-lav"><h3>AI Short Drama and Micro-Drama Creation</h3><p>Build short dramas, micro-dramas, vertical dramas, and episode-style story videos from a novel, script, or rough plot. The agent helps plan characters, scenes, props, prompts, continuity, and dialogue so Drama Studio can move from story to generated video faster.</p><a href="#creator">Create a short drama ›</a></article>
+        <article class="six-card accent-mag"><h3>Reference Video Recreation</h3><p>Upload a reference video and let the AI Video Agent analyze the style, rhythm, shot structure, camera language, and hooks. Recreate the creative direction for your own film scene, short drama, product story, or campaign video.</p><a href="#creator">Clone a video style ›</a></article>
+        <article class="six-card accent-coral"><h3>UGC-Style Ads</h3><p>Generate realistic UGC-style ads with lifelike AI presenters, natural hooks, creator-style pacing, and product storytelling. It is designed for teams testing AI ad videos across TikTok, Instagram, Meta, and other paid channels.</p><a href="/ugc-ads/">Try AI UGC ›</a></article>
+        <article class="six-card accent-lav"><h3>TikTok, Reels, and Shorts Content</h3><p>Batch-create short-form videos for TikTok, Reels, Shorts, and social campaigns from one idea or asset set. Keep brand voice consistent while testing hooks, captions, aspect ratios, edits, and platform-native video formats.</p><a href="#creator">Generate short videos ›</a></article>
+        <article class="six-card accent-mag"><h3>URL to Marketing and Ad Video</h3><p>Paste a product URL or campaign brief and turn it into a polished marketing video, explainer, product ad, or comparison clip. Topview acts as an AI marketing video generator and AI ad video generator for commercial creative teams.</p><a href="#creator">Create ad videos ›</a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section" id="compare">
+    <div class="wrap reveal">
+      <p class="eyebrow">Workflow shift</p>
+      <h2>From Single-Purpose Generators to an Agent Production System</h2>
+      <p class="section-sub">Most tools make one asset at a time. Topview is designed for the full creative loop: plan, generate, compare, refine, and adapt across video, image, social, and commercial formats.</p>
+      <div class="table-scroll">
+        <table class="compare-table">
+          <thead><tr><th scope="col">Capability</th><th scope="col">Traditional Manual Production</th><th scope="col">Current Gen — Generic AI Video Tools</th><th scope="col" class="col-best">Next Gen — TopView AI Video Agent <span class="best-badge">Best</span></th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Creative Input</th><td>Brief, shot list, assets, team handoff</td><td>Mostly prompt-only</td><td class="col-best">Prompt, URL, image, video, or reference mix</td></tr>
+            <tr><th scope="row">Reference Video Recreation</th><td>Manual research and editing</td><td>Limited or template-bound</td><td class="col-best">Analyzes pacing, shots, hooks, and structure</td></tr>
+            <tr><th scope="row">Image + Video Workflow</th><td>Separate design and video tools</td><td>Usually one media type</td><td class="col-best">Create images, scene boards, clips, and edits together</td></tr>
+            <tr><th scope="row">Narrative Production</th><td>Writers, directors, editors, actors</td><td>Short isolated clips</td><td class="col-best">Plans scenes, characters, shots, and variants</td></tr>
+            <tr><th scope="row">Platform Formats</th><td>Rebuild per channel</td><td>Export and resize manually</td><td class="col-best">Adapts for TikTok, Reels, Shorts, ads, and stories</td></tr>
+            <tr><th scope="row">Localization and Scale</th><td>High cost per market</td><td>Limited and one at a time</td><td class="col-best">Voice, captions, and versions across 30+ languages</td></tr>
+            <tr class="verdict"><th scope="row">Verdict</th><td>High control, high overhead</td><td>Fast clips, narrow workflow</td><td class="col-best">Multi-format production from one workspace</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Model orchestration -->
+  <section class="section" id="orchestration">
+    <div class="wrap reveal">
+      <p class="eyebrow">Model orchestration</p>
+      <h2>One Workspace, Many Creative Engines</h2>
+      <p class="section-sub">Topview routes creative work across video, image, avatar, voice, and localization capabilities so each task uses the model best suited to the output.</p>
+      <div class="orch-rows">
+        <article class="orch-row"><p class="orch-kind">Video generation — Seedance 2.0</p><h3>Cinematic Motion and Scene Output</h3><p>Generate short films, drama scenes, social clips, product videos, and reference-led variations with strong motion, camera direction, and visual continuity.</p></article>
+        <article class="orch-row"><p class="orch-kind">Image creation — GPT Image 2</p><h3>Visual Assets Before and After Video</h3><p>Create thumbnails, product imagery, character references, scene concepts, and image edits that can feed directly into video generation and campaign production.</p></article>
+        <article class="orch-row"><p class="orch-kind">Performance layer — Avatar + voice</p><h3>People, Dialogue, and Localization</h3><p>Add presenters, voiceover, captions, and 30+ language localization when a video needs explanation, performance, or market-specific versions.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools cloud -->
+  <section class="section" id="tools">
+    <div class="wrap reveal">
+      <p class="eyebrow">Creative toolkit</p>
+      <h2>Specialized Tools When the Agent Needs Sharper Control</h2>
+      <p class="section-sub">Move from broad agent creation into focused tools for video generation, image creation, character swaps, upscaling, motion control, product photography, voiceover, and more.</p>
+      <div class="tool-pills">
+        <a class="tool-pill" href="#creator">AI Video Agent <span class="hot">Hot</span></a>
+        <a class="tool-pill" href="#pillars">AI Canvas <span class="hot">Hot</span></a>
+        <a class="tool-pill" href="#pillars">AI Drama <span class="hot">Hot</span></a>
+        <a class="tool-pill" href="#creator">AI Image Generator <span class="hot">Hot</span></a>
+        <a class="tool-pill" href="#tools">Topview Skill</a>
+        <a class="tool-pill" href="#creator">AI Video Generator</a>
+        <a class="tool-pill" href="#tools">Video Character Swap <span class="hot">Hot</span></a>
+        <a class="tool-pill" href="#tools">Video Upscale</a>
+        <a class="tool-pill" href="#tools">Motion Control</a>
+        <a class="tool-pill" href="#tools">Inpaint</a>
+        <a class="tool-pill" href="#tools">Image Character Swap</a>
+        <a class="tool-pill" href="#tools">Image Face Swap</a>
+        <a class="tool-pill" href="#tools">Image Upscale</a>
+        <a class="tool-pill" href="#tools">Photo Angle Editor</a>
+        <a class="tool-pill" href="#tools">Virtual Try-On</a>
+        <a class="tool-pill" href="#tools">Product Photography</a>
+        <a class="tool-pill" href="#tools">Voiceover</a>
+        <a class="tool-pill pill-cta" href="#creator">Open the full toolset</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section" id="stats">
+    <div class="wrap reveal">
+      <p class="eyebrow">Why agent-first</p>
+      <h2>A Broader Production Surface for Modern Creative Teams</h2>
+      <p class="section-sub">Create films, drama scenes, social posts, image assets, product videos, and localized campaigns from one agent-driven creative system.</p>
+      <div class="stats-row">
+        <div class="stat"><span class="stat-num">1</span><p>Agent workspace for video planning, image creation, reference inputs, model choice, and final output.</p></div>
+        <div class="stat"><span class="stat-num">5+</span><p>Major creation modes: films and dramas, video recreation, social content, ads, image assets, and API workflows.</p></div>
+        <div class="stat"><span class="stat-num">30+</span><p>Languages for voiceover, captions, and localized creative variants when teams need global output.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case study -->
+  <section class="section" id="case-study">
+    <div class="wrap reveal">
+      <h2>Production Teams Already Use Topview to Scale Output</h2>
+      <blockquote class="case-quote">“TopView's AI Video Agent helped iLive by SHOPNOW grow our AI video production services revenue by 80%, while cutting labor and costs by 50%. It gives our team a faster way to test ideas, produce variations, and turn creative work into measurable output.”</blockquote>
+      <p class="case-attr"><span class="avatar-initials">LM</span> Long Ma, CEO, Shopnow Technology JSC</p>
+      <div class="stats-row">
+        <div class="stat"><span class="stat-num">+80%</span><p>Revenue growth in AI video production services</p></div>
+        <div class="stat"><span class="stat-num">−50%</span><p>Labor and production cost reduction</p></div>
+        <div class="stat"><span class="stat-num">10×</span><p>Faster turnaround on every video campaign</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" id="testimonials">
+    <div class="wrap reveal">
+      <h2 class="center">What Video Creators and Marketing Teams Say</h2>
+      <p class="row-label">Film, drama, and social video creators</p>
+      <div class="tst-marquee"><div class="marquee-track" data-marquee>
+        <article class="tst-card"><p>“For a high-volume YouTube workflow, the clean interface and Board make it easy to track outputs, iterate on ideas, and access multiple tools in one place.”</p><footer>Taskophilus Tanner</footer></article>
+        <article class="tst-card"><p>“Drama Studio helps me turn a story into characters, props, environments, and reusable references, while the support team responds quickly when I need help.”</p><footer>Minh</footer></article>
+        <article class="tst-card"><p>“Even when unlimited rendering requires patience, the clean workflow, Board, audio controls, and genuinely responsive support make Topview worthwhile.”</p><footer>QZDA_Proj</footer></article>
+        <article class="tst-card"><p>“After decades in film and television, I value Topview's fast access to new video models, practical unlimited plans, and responsive human support.”</p><footer>Steve Eriksson</footer></article>
+        <article class="tst-card"><p>“Topview gives me a strong video-generation workspace, with an especially helpful layout for organizing and adding assets.”</p><footer>Nuna Business</footer></article>
+      </div></div>
+      <p class="row-label">Marketing video and growth teams</p>
+      <div class="tst-marquee"><div class="marquee-track reverse" data-marquee>
+        <article class="tst-card"><p>“As a hobby creator, I get strong value from Seedance 2.0 and 2.5, and the unlimited generations make experimenting much more affordable.”</p><footer>rune trasop</footer></article>
+        <article class="tst-card"><p>“The platform has been an excellent place to create videos, and the customer service team has been enthusiastic and supportive.”</p><footer>J Robert Ormond</footer></article>
+        <article class="tst-card"><p>“I regularly use Topview for both image and video generation and value the range of services available in one place.”</p><footer>Alperen Hayder Karamus</footer></article>
+        <article class="tst-card"><p>“Topview is one of the best video-generation tools I've used, especially because live support is available when I need assistance.”</p><footer>Mohammad Milhem</footer></article>
+        <article class="tst-card"><p>“The site was easy to learn, the generation pricing was very competitive, and customer support responded quickly with useful guidance.”</p><footer>Cjf</footer></article>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta">
+    <div class="wrap reveal">
+      <h2>Create Your Next Video with Topview AI</h2>
+      <a class="btn btn-signup btn-lg" href="#creator">Start creating</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap wrap-narrow reveal">
+      <h2>Topview AI Video Creation FAQ</h2>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">What is Topview AI?<span class="faq-icon">+</span></button><div class="faq-a"><p>Topview AI is an agent-driven creative platform for video creation. It connects Canvas, Drama Studio, and Board so creators can plan, generate, organize, and refine videos from one workspace.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">What is Canvas best for?<span class="faq-icon">+</span></button><div class="faq-a"><p>Canvas is best for agent-led video creation. It supports short films, micro drama, video cloning, URL-to-video, batch video production, music videos, explainers, product ads, and image-to-video workflows. It can also work as an AI marketing video generator or AI ad video generator when teams need campaign videos fast.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">How does the Canvas agent turn an idea into a video?<span class="faq-icon">+</span></button><div class="faq-a"><p>You describe the idea, add references, or upload assets. The agent reads the intent, plans scenes, selects models, generates visual and audio assets, applies skills, and keeps the project editable on the canvas. You can also manually run and adjust each generation tool when you want direct control.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">Do beginners need video production skills?<span class="faq-icon">+</span></button><div class="faq-a"><p>No. Beginners can work by chatting with the agent, giving ideas, and making direction choices. They do not need to understand timelines, model settings, prompt engineering, or manual canvas nodes.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">Can advanced creators still control the details?<span class="faq-icon">+</span></button><div class="faq-a"><p>Yes. Professional creators can control prompts, references, characters, scenes, models, aspect ratios, shot structure, edits, and asset choices while using the agent as a creative partner.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">What is Drama Studio for?<span class="faq-icon">+</span></button><div class="faq-a"><p>Drama Studio is designed for AI micro-drama, mini drama, vertical drama, short-form drama, and multi-episode storytelling. It helps break down scripts, plan characters, scenes, props, and prompts, and preserve visual and audio continuity across clips and episodes.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">How does Drama Studio keep episodes consistent?<span class="faq-icon">+</span></button><div class="faq-a"><p>It organizes the script, character bible, scene design, props, and generation prompts as reusable production assets. That makes it easier to keep characters, locations, visuals, and sound coherent across a series.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">What is Board used for?<span class="faq-icon">+</span></button><div class="faq-a"><p>Board brings image, video, audio, and avatar models into one workspace. It also gives creators asset management for grouping, rating, viewing, pinning, comparing, and batch-operating generated materials.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">Can Topview recreate a reference video style?<span class="faq-icon">+</span></button><div class="faq-a"><p>Yes. Topview can study a reference video's pacing, shot structure, hook, motion, framing, and visual tone, then create a new video around your own story, product, or character.</p></div></div>
+        <div class="faq-item"><button class="faq-q" aria-expanded="false">How is Topview different from generic AI video tools?<span class="faq-icon">+</span></button><div class="faq-a"><p>Most tools either generate a single clip or ask users to manually operate nodes. Topview is an Agent and agentic canvas system: it can plan, generate, compare, refine, manage assets, and learn reusable skills from the creator's workflow.</p></div></div>
+      </div>
+      <p class="faq-disclaimer">Third-party model and brand names are trademarks of their respective owners. Topview provides access to supported AI models through its independent platform and is not the developer of those third-party models.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="fcol"><h4>AI Ads</h4><a href="#creator">AI Video Agent</a><a href="#six-ways">AI Ads Video</a><a href="#six-ways">AI Product Video</a><a href="#six-ways">AI UGC Video</a><a href="#six-ways">URL to Video</a></div>
+      <div class="fcol"><h4>AI Avatar</h4><a href="#tools">AI Avatar Generator</a><a href="#tools">Product Avatar</a><a href="#tools">Design My Avatar</a><a href="#tools">AI Lip Sync</a></div>
+      <div class="fcol"><h4>AI Video</h4><a href="#tools">AI Video Generator</a><a href="#pillars">Drama Studio</a><a href="#tools">AI Video Body Swap</a><a href="#tools">AI Video Upscaler</a><a href="#tools">AI Video Watermark Remover</a><a href="#tools">TikTok Watermark Remover</a><a href="#tools">Sora Watermark Remover</a><a href="#tools">Subtitle Remover</a><a href="#tools">AI Motion Control</a><a href="#tools">AI Lip Sync</a><a href="#six-ways">URL to Video</a></div>
+      <div class="fcol"><h4>AI Image</h4><a href="#tools">AI Image Generator</a><a href="#tools">AI Face Swap</a><a href="#tools">AI Image Character Swap</a><a href="#tools">AI Image Upscaler</a><a href="#tools">AI Inpaint</a><a href="#tools">AI Image Text Editor</a><a href="#tools">Photo Angle Editor</a><a href="#tools">AI Relighting</a><a href="#tools">AI Product Photography</a><a href="#tools">AI Virtual Try-On</a><a href="#tools">AI Storyboard Generator</a><a href="#tools">Extract Color Palette</a><a href="#tools">Image to Prompt</a></div>
+      <div class="fcol"><h4>AI Voice</h4><a href="#tools">Voiceover</a><a href="#tools">AI Voice Cloning</a><a href="#tools">AI Music Generator</a></div>
+      <div class="fcol"><h4>3D</h4><a href="#pillars">3D World Generator</a><a href="#pillars">3D Shot Composer</a></div>
+      <div class="fcol"><h4>Use Cases</h4><a href="#six-ways">Advertising</a><a href="#six-ways">Affiliate Marketing</a><a href="#six-ways">Ecommerce</a><a href="#six-ways">DTC Brands</a><a href="#six-ways">AI Live Stream</a></div>
+      <div class="fcol"><h4>Resources</h4><a href="#footer">Blog</a><a href="#footer">Affiliate Program</a><a href="#footer">Learning Center</a><a href="#footer">Alternative</a><a href="#footer">API</a></div>
+      <div class="fcol"><h4>Company</h4><a href="#footer">Topview Studio</a><a href="#footer">Privacy Policy</a><a href="#footer">Terms</a></div>
+    </div>
+    <div class="footer-bar">
+      <img src="/assets/img/topview/logo-full.webp" alt="Topview" width="146" height="33">
+      <p>© 2026 TOPVIEW PTE. LTD. · Singapore: 20 Collyer Quay #20-03, Singapore 049319 · Los Angeles: 15970 Los Serranos CC Dr #251, Chino Hills, CA 91709</p>
+      <button class="lang-btn" type="button">English ▾</button>
+    </div>
+    <p class="clone-note">Local practical-test clone rebuilt with the web-clone skill methodology from the public page source. Generation is simulated in the front end; not affiliated with Topview.</p>
+  </div>
+</footer>
+<script src="/assets/topview.js"></script>
 </body>
 </html>
