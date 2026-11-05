@@ -200,6 +200,7 @@
       modelPanel.querySelectorAll(".model-row").forEach(function (r) { r.classList.toggle("is-active", r === row); });
       modelPanel.hidden = true;
       refreshControls();
+      syncAudioLock();
     });
   });
 
@@ -215,13 +216,27 @@
   $("durMinus").addEventListener("click", function () { setDuration(state.duration - 1); });
   $("durPlus").addEventListener("click", function () { setDuration(state.duration + 1); });
 
-  /* ---------- audio switch ---------- */
+  /* ---------- audio switch ----------
+     Seedance's own tip says this model does not support disabling sound
+     effects, so for Seedance the switch is locked ON; other models toggle. */
   var audioSwitch = $("audioSwitch");
+  function syncAudioLock() {
+    var locked = state.model === "seedance";
+    if (locked && !state.audio) {
+      state.audio = true;
+      audioSwitch.classList.add("is-on");
+      audioSwitch.setAttribute("aria-checked", "true");
+    }
+    audioSwitch.classList.toggle("is-locked", locked);
+    audioSwitch.setAttribute("aria-disabled", String(locked));
+  }
   audioSwitch.addEventListener("click", function () {
+    if (state.model === "seedance") { syncAudioLock(); return; }
     state.audio = !state.audio;
     audioSwitch.classList.toggle("is-on", state.audio);
     audioSwitch.setAttribute("aria-checked", String(state.audio));
   });
+  syncAudioLock();
 
   /* ---------- stage tabs ---------- */
   var stageTabs = Array.prototype.slice.call(document.querySelectorAll(".stage-tab"));
@@ -257,6 +272,8 @@
     function apply() {
       promptInput.value = item.prompt || "";
       promptInput.dispatchEvent(new Event("input"));
+      var durMatch = (item.prompt || "").match(/(\d{1,2})\s*seconds/i);
+      if (durMatch) setDuration(parseInt(durMatch[1], 10));
       if (state.product && state.product.indexOf("blob:") === 0) URL.revokeObjectURL(state.product);
       state.product = item.thumb;
       productPreview.src = item.thumb; productPreview.hidden = false; productRemove.hidden = false;

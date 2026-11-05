@@ -125,6 +125,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .switch{width:48px;height:27px;border-radius:100px;border:0;background:#3a3a41;cursor:pointer;position:relative;flex:none;transition:background .2s}
 .switch .knob{position:absolute;top:3px;left:3px;width:21px;height:21px;border-radius:50%;background:#fff;transition:left .2s}
 .switch.is-on{background:var(--switch)}
+.switch.is-locked{cursor:not-allowed;opacity:.75}
 .switch.is-on .knob{left:24px}
 
 /* create bar */
